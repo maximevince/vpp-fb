@@ -171,6 +171,7 @@ int CPCB_TG_SetParams(THINVPP_OBJ *vpp_obj, int CpcbUnit, PVPP_CPCB_TG_PARAMS pT
  * RETURN:  1 - succeed
  *                others - failed to load CPCB TG default values to BCM buffer
  ***************************************************************************************/
+//XXX: Plane-3 GX is missing here!!
 int CPCB_TG_SetPlaneWindow(THINVPP_OBJ *vpp_obj, int CpcbUnit, int CpCbPlane, PVPP_WINDOW pWindowPos)
 {
     unsigned int Low8bits, High4bits;

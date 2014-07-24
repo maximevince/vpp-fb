@@ -205,7 +205,7 @@ int THINVPP_CPCB_SetPlaneBGWindow(THINVPP_OBJ *vpp_obj, int cpcbID, int layerID,
                     CPCB_TG_SetPlaneWindow(vpp_obj, cpcbID, TG_PLANE5_MAIN_BORDER, &bgwin);
                     break;
                 case CPCB1_PLANE_2: /* CPCB plane 2 */
-                    CPCB_TG_SetPlaneWindow(vpp_obj, cpcbID, TG_PLANE6_PIP_BORDER, &bgwin);
+                    //CPCB_TG_SetPlaneWindow(vpp_obj, cpcbID, TG_PLANE6_PIP_BORDER, &bgwin);
                     break;
             }
             break;
@@ -244,6 +244,13 @@ int THINVPP_CPCB_SetPlaneSourceWindow(THINVPP_OBJ *vpp_obj, int cpcbID, int laye
     window.BottomRight.X = x + width;
     window.BottomRight.Y = y + height;
 
+    // If you wanna try cropping ;)
+    VPP_WINDOW window2;
+    window2.TopLeft.X = x/2;
+    window2.TopLeft.Y = y/2;
+    window2.BottomRight.X = x/2 + width/2;
+    window2.BottomRight.Y = y/2 + height/2;
+
     switch (cpcbID){
         case CPCB_1:
         case CPCB_2:
@@ -254,8 +261,8 @@ int THINVPP_CPCB_SetPlaneSourceWindow(THINVPP_OBJ *vpp_obj, int cpcbID, int laye
                     CPCB_TG_SetPlaneWindow(vpp_obj, cpcbID, TG_PLANE1_MAIN_CROP2, &window);
                     break;
                 case CPCB1_PLANE_2: /* CPCB plane 2 */
-                    CPCB_TG_SetPlaneWindow(vpp_obj, cpcbID, TG_PLANE2_PIP, &window);
-                    CPCB_TG_SetPlaneWindow(vpp_obj, cpcbID, TG_PLANE2_PIP_CROP1, &window);
+                    //CPCB_TG_SetPlaneWindow(vpp_obj, cpcbID, TG_PLANE2_PIP, &window);
+                    //CPCB_TG_SetPlaneWindow(vpp_obj, cpcbID, TG_PLANE2_PIP_CROP1, &window);
                     break;
             }
             break;

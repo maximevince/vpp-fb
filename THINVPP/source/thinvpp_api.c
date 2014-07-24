@@ -290,8 +290,10 @@ int MV_THINVPP_Config(void)
             thinvpp_obj->plane[i].offline_dmaWdhubID = (int)(&VPP_dhubHandle);
             thinvpp_obj->plane[i].offline_dmaRID = avioDhubChMap_vpp_MV_FRC_R; // offline readd-back DMA
             thinvpp_obj->plane[i].offline_dmaRdhubID = (int)(&VPP_dhubHandle);
+        }
 #if (BERLIN_CHIP_VERSION != BERLIN_BG2CD_A0)
-        } else if (i == PLANE_PIP){
+        /*
+        else if (i == PLANE_PIP){
             thinvpp_obj->plane[i].dmaRID = avioDhubChMap_vpp_PIP_R; // inline read DMA
             thinvpp_obj->plane[i].dmaRdhubID = (int)(&VPP_dhubHandle);
             thinvpp_obj->plane[i].offline_dmaWID = avioDhubChMap_vpp_PIP_FRC_W; // offline write-back DMA
@@ -303,11 +305,14 @@ int MV_THINVPP_Config(void)
             thinvpp_obj->plane[i].offline_dmaWdhubID = (int)(&VPP_dhubHandle);
             thinvpp_obj->plane[i].offline_dmaRID = avioDhubChMap_vpp_AUX_FRC_R; // AUX offline read-back DMA
             thinvpp_obj->plane[i].offline_dmaRdhubID = (int)(&VPP_dhubHandle);
+        }*/
 #endif // (BERLIN_CHIP_VERSION != BERLIN_BG2CD_A0)
-        } else if (i == PLANE_GFX0){
+        /*
+         else if (i == PLANE_GFX0){
             thinvpp_obj->plane[i].dmaRID = avioDhubChMap_ag_GFX_R; // inline read DMA
             thinvpp_obj->plane[i].dmaRdhubID = (int)(&AG_dhubHandle);
         }
+        */
 
     } // <- config FE planes
 
@@ -316,9 +321,11 @@ int MV_THINVPP_Config(void)
     thinvpp_obj->chan[CHAN_MAIN].zorder = CPCB_ZORDER_2;
     thinvpp_obj->chan[CHAN_MAIN].dvlayerID = CPCB1_PLANE_1;
 
+    /*
     thinvpp_obj->chan[CHAN_AUX].dvID = CPCB_3;
     thinvpp_obj->chan[CHAN_AUX].zorder = CPCB_ZORDER_1;
     thinvpp_obj->chan[CHAN_AUX].dvlayerID = CPCB1_PLANE_1; // PLANE-1 of CPCB-2
+    */
 
     thinvpp_obj->dv[CPCB_1].num_of_chans = 1;
     thinvpp_obj->dv[CPCB_1].chanID[0] = CHAN_MAIN;

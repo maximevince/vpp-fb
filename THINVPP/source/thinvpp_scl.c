@@ -43,8 +43,8 @@ int THINVPP_SCL_Reset(THINVPP_OBJ *vpp_obj)
     FE_DLR_LoadDefaultVal(vpp_obj, VPP_FE_DLR_CHANNEL_MAIN);
     FRC_SCL_LoadDefaultVal(vpp_obj, VPP_FRC_SCL_MAIN);
 #else
-    FE_DLR_LoadDefaultVal(vpp_obj, VPP_FE_DLR_CHANNEL_PIP);
-    FRC_SCL_LoadDefaultVal(vpp_obj, VPP_FRC_SCL_PIP);
+    //FE_DLR_LoadDefaultVal(vpp_obj, VPP_FE_DLR_CHANNEL_PIP);
+    //FRC_SCL_LoadDefaultVal(vpp_obj, VPP_FRC_SCL_PIP);
 #endif
     FE_DLR_LoadDefaultVal(vpp_obj, VPP_FE_DLR_CHANNEL_OFFLINE);
 
@@ -89,15 +89,15 @@ int THINVPP_SCL_Config(THINVPP_OBJ *vpp_obj)
         FRC_SCL_SetBeSwitch(vpp_obj, CHAN_PIP, vpp_obj->chan[CHAN_PIP].dvID);
     }
 #endif
-    if (vpp_obj->chan[CHAN_AUX].dvID != DV_INVALID){
-        FE_DLR_ClearOffLineChannel(vpp_obj, VPP_FE_DLR_OFFLINE_AUX_R, 1);
-        FE_DLR_ClearOffLineChannel(vpp_obj, VPP_FE_DLR_OFFLINE_AUX_W, 0);
-        FE_DLR_ClearOffLineChannel(vpp_obj, VPP_FE_DLR_OFFLINE_AUX_R, 0);
+    //if (vpp_obj->chan[CHAN_AUX].dvID != DV_INVALID){
+    //    FE_DLR_ClearOffLineChannel(vpp_obj, VPP_FE_DLR_OFFLINE_AUX_R, 1);
+    //    FE_DLR_ClearOffLineChannel(vpp_obj, VPP_FE_DLR_OFFLINE_AUX_W, 0);
+    //    FE_DLR_ClearOffLineChannel(vpp_obj, VPP_FE_DLR_OFFLINE_AUX_R, 0);
 
-        vpp_obj->chan[CHAN_AUX].scl_in_out_mode = 1; /* 24-bit input & 16-bit output */
-        /* no switch setting needed for AUX channel in B0 */
-        /* because it is hard-wired to CPCB-3 */
-    }
+    //    vpp_obj->chan[CHAN_AUX].scl_in_out_mode = 1; /* 24-bit input & 16-bit output */
+    //    /* no switch setting needed for AUX channel in B0 */
+    //    /* because it is hard-wired to CPCB-3 */
+    //}
 
     return (MV_THINVPP_OK);
 }

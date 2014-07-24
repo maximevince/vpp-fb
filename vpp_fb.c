@@ -100,6 +100,7 @@ static struct fb_var_screeninfo vpp_fb_var __devinitdata = {
 	.xres_virtual = 1280,
 	.yres_virtual = 720,
 	.bits_per_pixel = 16,
+    .nonstd = 1,
 	.grayscale = V4L2_PIX_FMT_YUYV,
 	//.grayscale = 0,
     .red.offset = 0,
@@ -161,7 +162,7 @@ static void vppfb_device_exit(struct fb_info *info)
 	if (par->vppfb_ctx.fbBuf_orig_malloc) {
 		dma_unmap_single(NULL, (dma_addr_t)par->vppfb_ctx.mapaddr, par->vppfb_ctx.length, DMA_TO_DEVICE);
 		gs_trace("will NOT free pBuf -- this is NOT OK\n");
-		//kfree(par->vppfb_ctx.fbBuf_orig_malloc);
+		kfree(par->vppfb_ctx.fbBuf_orig_malloc);
 		par->vppfb_ctx.fbBuf = NULL;
 		par->vppfb_ctx.fbBuf_orig_malloc = NULL;
 	}
@@ -385,7 +386,7 @@ static int vpp_fb_set_par(struct fb_info *info)
 
 	// initialize buffer
 	// TODO: YUV/RGB?
-	memset(par->vppfb_ctx.fbBuf, 0, par->vppfb_ctx.length);
+	memset(par->vppfb_ctx.fbBuf, 0xaa, par->vppfb_ctx.length);
 	info->screen_base = (char *)par->vppfb_ctx.fbBuf;
 	info->fix.smem_start = (unsigned int)par->vppfb_ctx.mapaddr;
 	info->fix.smem_len = par->vppfb_ctx.length;

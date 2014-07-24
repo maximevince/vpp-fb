@@ -149,10 +149,10 @@ static int startChannelDataLoader(THINVPP_OBJ *vpp_obj, int chanID)
             FRC_SCL_SetFrcParams(vpp_obj, scl_id, &frc_res);
 
             /*program for detail scaler*/
-            FRC_SCL_SetDeLrstDelay(vpp_obj, VPP_FRC_SCL_DETAIL, 80);
-            FRC_SCL_SetWorkMode(vpp_obj, VPP_FRC_SCL_DETAIL, plane->mode);
-            FRC_SCL_SetSclCtrlParams(vpp_obj, VPP_FRC_SCL_DETAIL, &scl_res, &scl_ctrl);
-            FRC_SCL_SetFrcParams(vpp_obj, VPP_FRC_SCL_DETAIL, &frc_res);
+            //FRC_SCL_SetDeLrstDelay(vpp_obj, VPP_FRC_SCL_DETAIL, 80);
+            //FRC_SCL_SetWorkMode(vpp_obj, VPP_FRC_SCL_DETAIL, plane->mode);
+            //FRC_SCL_SetSclCtrlParams(vpp_obj, VPP_FRC_SCL_DETAIL, &scl_res, &scl_ctrl);
+            //FRC_SCL_SetFrcParams(vpp_obj, VPP_FRC_SCL_DETAIL, &frc_res);
 
             THINVPP_CPCB_SetPlaneSourceWindow(vpp_obj, cpcbID, chan->dvlayerID,
                 plane->actv_win.x, plane->actv_win.y, plane->actv_win.width, plane->actv_win.height);
