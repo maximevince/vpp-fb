@@ -40,8 +40,8 @@ int THINVPP_SCL_Reset(THINVPP_OBJ *vpp_obj)
 #endif
 
 #if VPPFB_ENABLE_MAIN
-    FE_DLR_LoadDefaultVal(vpp_obj, VPP_FE_DLR_CHANNEL_MAIN);
-    FRC_SCL_LoadDefaultVal(vpp_obj, VPP_FRC_SCL_MAIN);
+    //FE_DLR_LoadDefaultVal(vpp_obj, VPP_FE_DLR_CHANNEL_MAIN);
+    //FRC_SCL_LoadDefaultVal(vpp_obj, VPP_FRC_SCL_MAIN);
 #else
     //FE_DLR_LoadDefaultVal(vpp_obj, VPP_FE_DLR_CHANNEL_PIP);
     //FRC_SCL_LoadDefaultVal(vpp_obj, VPP_FRC_SCL_PIP);

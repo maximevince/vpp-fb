@@ -103,7 +103,7 @@ static int startChannelDataLoader(THINVPP_OBJ *vpp_obj, int chanID)
             plane->actv_win.width  = active_width;
             plane->actv_win.height = pinfo->m_active_height;
 
-            THINVPP_CPCB_SetPlaneAttribute(vpp_obj, cpcbID, chan->dvlayerID, chan->disp_win_attr.alpha, chan->disp_win_attr.bgcolor);
+            //THINVPP_CPCB_SetPlaneAttribute(vpp_obj, cpcbID, chan->dvlayerID, chan->disp_win_attr.alpha, chan->disp_win_attr.bgcolor);
 
             plane_fmt.SrcFmt = SRCFMT_YUV422;
             plane_fmt.FmtOrder = ORDER_YUYV;
@@ -176,7 +176,7 @@ static int startChannelDataLoader(THINVPP_OBJ *vpp_obj, int chanID)
                 // update bgcolor and alpha
                 chan->disp_win_attr.bgcolor = pinfo->bgcolor;
                 chan->disp_win_attr.alpha = pinfo->alpha;
-                THINVPP_CPCB_SetPlaneAttribute(vpp_obj, cpcbID, chan->dvlayerID, chan->disp_win_attr.alpha, chan->disp_win_attr.bgcolor);
+                //THINVPP_CPCB_SetPlaneAttribute(vpp_obj, cpcbID, chan->dvlayerID, chan->disp_win_attr.alpha, chan->disp_win_attr.bgcolor);
             }
 
             if (plane->actv_win.x != active_left ||

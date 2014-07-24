@@ -72,6 +72,7 @@ int THINVPP_CPCB_Config(THINVPP_OBJ *vpp_obj)
     CPCB_SetFeedbackPath(vpp_obj, VPP_CPCB_PRG_OUT_TO_FE);
 
     /* set OSD overlay mode & domain for CPCBs */
+#if 0 // OVERLAY SHIZZLE
 #if (BERLIN_CHIP_VERSION >= BERLIN_B_0)
     for (cpcbID=CPCB_1; cpcbID<=CPCB_2; cpcbID++){
         ovl_ctrl.OSdDomain = VPP_OVL_OSD_YUV_DMN; // overlay happen in YUV domain
@@ -101,6 +102,7 @@ int THINVPP_CPCB_Config(THINVPP_OBJ *vpp_obj)
         }
         VPP_OVL_SetCtrl(vpp_obj, cpcbID, &ovl_ctrl);
     }
+#endif
 #endif
 
     /* set z-order of CPCB layers */
@@ -188,6 +190,9 @@ int THINVPP_CPCB_SetPlaneAttribute(THINVPP_OBJ *vpp_obj, int cpcbID, int layerID
  * RETURN: MV_THINVPP_OK
  * NOTE: cropping need to be done before set background window.
  ******************************************************************/
+
+// XXX vnz NOTE: absolutely needed!!
+// Make one with Plane7 border??
 int THINVPP_CPCB_SetPlaneBGWindow(THINVPP_OBJ *vpp_obj, int cpcbID, int layerID, int x, int y, int width, int height)
 {
     VPP_WINDOW bgwin;
